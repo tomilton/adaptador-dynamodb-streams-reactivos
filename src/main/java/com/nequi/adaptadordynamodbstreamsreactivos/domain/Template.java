@@ -5,6 +5,8 @@ import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbAttri
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbPartitionKey;
 
+import java.util.List;
+
 @DynamoDbBean
 public class Template {
 
@@ -21,6 +23,9 @@ public class Template {
     private String port;
     private String region;
     private String version;
+
+    private List<PropertyRS> propertyRS;
+    private List<PropertyRQ> propertyRQ;
 
     @DynamoDbPartitionKey
     @DynamoDbAttribute("templateID")
@@ -121,5 +126,23 @@ public class Template {
 
     public void setVersion(String version) {
         this.version = version;
+    }
+
+    @DynamoDbAttribute("propertyRS")
+    public List<PropertyRS> getPropertyRS() {
+        return propertyRS;
+    }
+
+    public void setPropertyRS(List<PropertyRS> propertyRS) {
+        this.propertyRS = propertyRS;
+    }
+
+    @DynamoDbAttribute("propertyRQ")
+    public List<PropertyRQ> getPropertyRQ() {
+        return propertyRQ;
+    }
+    
+    public void setPropertyRQ(List<PropertyRQ> propertyRQ) {
+        this.propertyRQ = propertyRQ;
     }
 }
