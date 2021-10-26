@@ -1,0 +1,13 @@
+aws:
+  accessKey: "******"
+  secretKey: "******"
+
+spring:
+  application:
+    name: adaptador-dynamodb
+
+server:
+  port: 9090
+
+dynamodb:
+  endpoint: http://localhost:4566/
