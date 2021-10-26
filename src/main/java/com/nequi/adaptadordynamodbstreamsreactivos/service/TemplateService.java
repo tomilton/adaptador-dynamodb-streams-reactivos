@@ -39,27 +39,27 @@ public class TemplateService {
     public Mono<Result> updateExistingTemplate(Template template) {
         return Mono.fromFuture(templateRepository.getTemplateByID(template.getTemplateID()))
                 .doOnSuccess(Objects::requireNonNull)
-                .doOnNext(__ -> templateRepository.updateTemplate(template))
+                .doOnNext(__ -> templateRepository.update(template))
                 .doOnSuccess(Objects::requireNonNull)
                 .thenReturn(SUCCESS)
                 .onErrorReturn(FAIL);
     }
 
     public Mono<Result> updateExistingOrCreateTemplate(Template template) {
-        return Mono.fromFuture(templateRepository.updateTemplate(template))
+        return Mono.fromFuture(templateRepository.update(template))
                 .thenReturn(SUCCESS)
                 .onErrorReturn(FAIL);
     }
 
     public Mono<Result> deleteTemplateById(String templateId) {
-        return Mono.fromFuture(templateRepository.deleteTemplateById(templateId))
+        return Mono.fromFuture(templateRepository.deleteById(templateId))
                 .doOnSuccess(Objects::requireNonNull)
                 .thenReturn(SUCCESS)
                 .onErrorReturn(FAIL);
     }
 
     public Flux<Template> getAll() {
-        return Flux.from(templateRepository.getAllTemplate()
+        return Flux.from(templateRepository.getAll()
                         .items())
                 .onErrorReturn(new Template());
     }

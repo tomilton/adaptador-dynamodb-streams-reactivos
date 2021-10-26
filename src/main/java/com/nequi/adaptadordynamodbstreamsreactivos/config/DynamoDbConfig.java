@@ -25,7 +25,7 @@ public class DynamoDbConfig {
     private final String dynamoEndpoint;
 
 
-    public DynamoDbConfig( @Value("${dynamodb.endpoint:}") String dynamoEndpoint) {
+    public DynamoDbConfig(@Value("${dynamodb.endpoint:}") String dynamoEndpoint) {
 
         this.dynamoEndpoint = dynamoEndpoint;
     }

@@ -28,17 +28,17 @@ public class TemplateRepository {
     }
 
     // update
-    public CompletableFuture<Template> updateTemplate(Template template) {
+    public CompletableFuture<Template> update(Template template) {
         return templateDynamoDbAsyncTable.updateItem(template);
     }
 
     // delete
-    public CompletableFuture<Template> deleteTemplateById(String templateId) {
+    public CompletableFuture<Template> deleteById(String templateId) {
         return templateDynamoDbAsyncTable.deleteItem(getKeyBuild(templateId));
     }
 
     // get_all_item
-    public PagePublisher<Template> getAllTemplate() {
+    public PagePublisher<Template> getAll() {
         return templateDynamoDbAsyncTable.scan();
     }
 
