@@ -8,6 +8,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
+@RequestMapping("/api/template")
 public class TemplateController {
 
     private final TemplateService templateService;
