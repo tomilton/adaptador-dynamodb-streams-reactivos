@@ -51,6 +51,10 @@ public class TemplateService {
                 .onErrorReturn(FAIL);
     }
 
+    public Mono<Template> updateExistingOrCreateTemplate1(Template template) {
+        return Mono.fromFuture(templateRepository.update(template));
+    }
+
     public Mono<Result> deleteTemplateById(String templateId) {
         return Mono.fromFuture(templateRepository.deleteById(templateId))
                 .doOnSuccess(Objects::requireNonNull)

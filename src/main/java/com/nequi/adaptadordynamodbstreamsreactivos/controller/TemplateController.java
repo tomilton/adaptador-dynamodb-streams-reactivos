@@ -37,6 +37,11 @@ public class TemplateController {
         return templateService.updateExistingOrCreateTemplate(template);
     }
 
+    @PutMapping("/updateTemplateOrCreate1")
+    public Mono<Template> updateOrCreate1(@RequestBody Template template) {
+        return templateService.updateExistingOrCreateTemplate1(template);
+    }
+
     @DeleteMapping("/delete/{templateId}")
     public Mono<Result> delete(@PathVariable() String templateId) {
         return templateService.deleteTemplateById(templateId);

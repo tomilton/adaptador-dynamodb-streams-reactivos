@@ -145,4 +145,23 @@ public class Template {
     public void setPropertyRQ(List<PropertyRQ> propertyRQ) {
         this.propertyRQ = propertyRQ;
     }
+
+    @Override
+    public String toString() {
+        return "Template{" +
+                "templateID='" + templateID + '\'' +
+                ", templateOrigRQ=" + templateOrigRQ +
+                ", templateDestRQ=" + templateDestRQ +
+                ", templateOrigRS=" + templateOrigRS +
+                ", templateDestRS=" + templateDestRS +
+                ", httpVerb='" + httpVerb + '\'' +
+                ", protocol='" + protocol + '\'' +
+                ", host='" + host + '\'' +
+                ", port='" + port + '\'' +
+                ", region='" + region + '\'' +
+                ", version='" + version + '\'' +
+                ", propertyRS=" + propertyRS +
+                ", propertyRQ=" + propertyRQ +
+                '}';
+    }
 }
